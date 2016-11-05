@@ -1,0 +1,16 @@
+{{define "content"}}
+<content id="ft-create-section" class="ft-content ft-create ft-section">
+	<div class="ft-navigation">
+		<a class="ft-btn cancel" href="/admin/manage/sections">Cancel</a>
+		<h1>Create Section</h1>
+	</div>
+	<form action="/admin/manage/sections" method="POST">
+		<span class="ft-lbl">Section Name:</span><input class="ft-name" name="sectionName" placeholder="Enter a name..." type="text" />
+		<span class="ft-lbl">Section HTML:</span><textarea class="ft-html" name="html" placeholder="Enter HTML here..."></textarea>
+		<span class="ft-lbl">Section CSS:</span><textarea class="ft-css" name="css" placeholder="Enter CSS here..." /></textarea>
+		<span class="ft-lbl">Section Javascript:</span><textarea class="ft-javascript" name="javascript" placeholder="Enter Javascript here..." /></textarea>
+
+		<input class="ft-btn ft-next" type="submit" value="Next" />
+	</form>
+</content>
+{{end}}

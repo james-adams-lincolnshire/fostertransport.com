@@ -1,0 +1,33 @@
+{{define "header"}}
+<header id="ft-header" class="ft-box-shadow">
+	<img src="/static/images/foster-transport_logo_198-198.png" alt="Foster Transport logo" class="ft-logo" />
+	<span class="ft-firstname ft-label">Andrew </span>
+	<span class="ft-lastname ft-label">Foster</span>
+	<nav>
+		<ul>
+			<li>
+				<a href="/admin/dashboard"><span>Dashboard</span></a>
+			</li>
+			<li>
+				<a href="/admin/quote/chats"><span>Live Chats</span>
+				<span class="ft-notification-number ft-live-chats">2</span></a>
+			</li>
+			<li>
+				<a href="/admin/quote/requests"><span>Quotes</span>
+				<span class="ft-notification-number ft-quotes">13</span></a>
+			</li>
+			<li>
+				<a href="/admin/manage/sections"><span>Sections</span></a>
+			</li>
+			<li>
+				<a href="/admin/manage/blog"><span>Blog</span></a>
+			</li>
+		</ul>
+	</nav>
+	<div class="ft-foot">
+		<a href="/admin/logout"><span class="ft-label">Logout</span></a>
+	</div>
+</header>
+
+<div id="ft-header-background" class="ft-container"></div>
+{{end}}

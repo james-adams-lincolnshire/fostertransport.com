@@ -1,0 +1,15 @@
+{{define "layout"}}
+<html>
+	{{template "head"}}
+	<body class="ft-body">
+		{{template "header"}}
+		{{template "content" . }}
+
+		<div id="ft-loading" class="ft-container">
+			<div class="ft-msg">Loading...</div>
+		</div>
+
+		<script type="text/javascript" src="/static/javascript/site.js"></script>
+	</body>
+</html>
+{{end}}

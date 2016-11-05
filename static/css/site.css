@@ -1,0 +1,898 @@
+.ft-body {
+	margin: 0px;
+}
+
+/*** Body Loading ***/
+#ft-loading {
+	display: none;
+	text-align: center;
+	font-family: sans-serif;
+	color: #fff;
+}
+
+#ft-loading.ft-visible {
+	display: block;
+}
+
+#ft-loading.ft-container {
+	z-index: 99;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.20);
+}
+
+#ft-loading .ft-msg {
+	position: relative;
+	top: 50%;
+	margin-top: -30px;
+	font-size: 60px;
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) and (orientation : landscape) {
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+	#ft-loading .ft-msg {
+		font-size: 32px;
+	}
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+}
+/*** Body Loading END ***/
+
+/*** Body Header ***/
+#ft-header {
+	z-index: 98;
+	position: absolute;
+	display: block;
+	top: 0px;
+	left: -75%;
+	width: 75%;
+	height: 100%;
+	font-family: sans-serif;
+	background-color: #000;
+}
+
+#ft-header.ft-open {
+	left: 0%;
+}
+
+#ft-header.ft-box-shadow {
+	-webkit-box-shadow: 0px 15px 40px 20px rgba(25, 25, 25, 0.25);
+	-moz-box-shadow: 0px 15px 40px 20px rgba(25, 25, 25, 0.25);
+	box-shadow: 0px 15px 40px 20px rgba(25, 25, 25, 0.25);
+}
+
+#ft-header.ft-box-shadow.open {
+	-webkit-box-shadow: 2px 13px 50px 25px rgb(25, 25, 25);
+	-moz-box-shadow: 2px 13px 50px 25px rgb(25, 25, 25);
+	box-shadow: 2px 13px 50px 25px rgb(25, 25, 25);
+}
+
+#ft-header .ft-logo {
+	width: 110px;
+	height: 110px;
+	padding: 35px;
+}
+
+#ft-header .ft-firstname,
+#ft-header .ft-lastname {
+	position: absolute;
+	top: 100px;
+	left: 54%;
+	font-size: 35px;
+	letter-spacing: 7px;
+}
+
+#ft-header .ft-lastname {
+	left: 78%;
+	color: red;
+}
+
+#ft-header .ft-firstname {
+	color: #DFDFDF;
+}
+
+	#ft-header nav {
+		margin: 25px 0px 25px 0px;
+	}
+
+	#ft-header nav ul {
+		margin: 0;
+		padding: 0 5px 0 0;
+	}
+
+		#ft-header nav ul li {
+			height: 140px;
+			background-color: #fff;
+			-moz-box-shadow: inset 0 0 10px #000000;
+			-webkit-box-shadow: inset 0 0 10px #000000;
+			box-shadow: inset 0px 0px 10px #000000;
+			margin-bottom: 2px;
+		}
+
+			#ft-header nav ul li a {
+				display: block;
+				width: 93%;
+				height: 65%;
+				padding: 25px;
+				text-decoration: none;
+				color: #000;
+			}
+
+				#ft-header nav ul li a span {
+					line-height: 80px;
+					text-decoration: none;
+					font-size: 32px;
+					letter-spacing: 3px;
+				}
+
+				#ft-header nav ul li a span.ft-notification-number {
+					display: inline-block;
+					float: right;
+					width: 86px;
+					height: 86px;
+					text-align: center;
+					background: rgba(255, 43, 43, 0.46);
+					line-height: 86px;
+					border-radius: 10px;
+					margin-top: 3px;
+					color: #FFFFFF;
+				}
+
+#ft-header .ft-foot {
+	width: 99%;
+	height: 140px;
+}
+
+	#ft-header .ft-foot a {
+		font-size: 32px;
+		display: block;
+		height: 65%;
+		width: 93%;
+		line-height: 82px;
+		padding: 25px;
+		text-align: center;
+		text-decoration: none;
+	}
+	
+	#ft-header .ft-foot  span.ft-label {
+		letter-spacing: 7px;
+		color: red;
+	}
+
+#ft-header-background.ft-container {
+	z-index: 97;
+	position: fixed;
+	display: none;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.20);
+}
+
+#ft-header-background.ft-container.ft-menu-open {
+	display: block;
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) and (orientation : landscape) {
+	#ft-header {
+		height: auto;
+	}
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+	#ft-header {
+		position: fixed;
+		left: 0%;
+		width: 100%;
+		height: 100px;
+	}
+	
+		#ft-header.ft-box-shadow {
+			-webkit-box-shadow: none;
+			-moz-box-shadow: none;
+			box-shadow: none;
+		}
+	
+	#ft-header .ft-logo {
+		width: 55px;
+		height: 55px;
+		padding: 10px 25px 40px 25px;
+	}
+	
+	#ft-header .ft-firstname,
+	#ft-header .ft-lastname	{
+		position: relative;
+		top: -54px;
+		left: -1%;
+		font-size: 14px;
+		letter-spacing: 5px;
+	}
+	
+	#ft-header .ft-lastname	{
+		color: rgb(206, 0, 0);
+	}
+	
+		#ft-header nav {
+			position: absolute;
+			top: 42px;
+			right: 0%;
+			width: 67%;
+			height: auto;
+			margin: 0px;
+			padding: 10px;
+		}
+
+		#ft-header nav ul {
+			float: right;
+			margin: 0;
+			padding: 0px;
+		}
+	
+			#ft-header nav ul li {
+				display: inline-block;
+				width: 123px;
+				height: 33px;
+				background-color: transparent;
+				box-shadow: none;
+				margin-bottom: 0px;
+			}
+	
+				#ft-header nav ul li a {
+					width: auto;
+					height: auto;
+					padding: 2px;
+					text-align: center;
+				}
+				
+					#ft-header nav ul li a span {
+						line-height: 24px;
+						font-size: 12px;
+						color: #DFDFDF;
+					}
+
+						#ft-header nav ul li a span.ft-notification-number {
+							position: absolute;
+							display: inline-block;
+							float: none;
+							top: -18px;
+							width: 24px;
+							height: 24px;
+							font-size: 12px;
+							line-height: 24px;
+							border-radius: 4px;
+							letter-spacing: 0px;
+							background: rgba(255, 43, 43, 0.6);
+						}
+						
+						#ft-header nav ul li a span.ft-notification-number.ft-live-chats {
+							margin-left: -60px;
+						}
+						
+						#ft-header nav ul li a span.ft-notification-number.ft-quotes {
+							margin-left: -40px;
+						}
+						
+	#ft-header .ft-foot {
+		position: absolute;
+		left: 90px;
+		top: 52px;
+		width: auto;
+		height: auto;
+	}
+					
+		#ft-header .ft-foot a {
+			font-size: 12px;
+			display: block;
+			height: auto;
+			width: auto;
+			padding: 10px;
+			text-align: center;
+			line-height: 14px;
+			letter-spacing: 2px;
+			text-decoration: none;
+		}
+		
+		#ft-header .ft-foot  span.ft-label {
+			letter-spacing: 2px;
+			color: rgb(206, 0, 0);
+		}
+	}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+#ft-header {
+    position: fixed;
+    left: 50%;
+    width: 100%;
+    height: 100px;
+    max-width: 1200px;
+    margin-left: -600px;
+}
+}
+/*** Body Header END ***/
+
+/*** Body Button ***/
+
+.ft-btn {
+	display: block;
+	width: 150px;
+	height: 100px;
+	letter-spacing: 2px;
+	font-family: sans-serif;
+	background-color: rgb(211, 0, 0);
+	color: #FCFCFC;
+	text-decoration: none;
+}
+
+.ft-btn.ft-icon {
+	width: 62px;
+	height: 62px;
+	line-height: 62px;
+	text-align: center;
+	border-radius: 500px;
+	background-color: rgba(211, 0, 0, 0.51);
+	box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.16);
+}
+
+.ft-btn.ft-icon.ft-main-function {
+	z-index: 98;
+	position: fixed;
+	right: 50px;
+	bottom: 50px;
+	width: 120px;
+	height: 120px;
+	font-size: 90px;
+	line-height: 120px;
+}
+
+.ft-btn.ft-menu,
+.ft-btn.ft-layout {
+	display: inline-block;
+	font-size: 60px;
+	font-weight: normal;
+	line-height: 98px;
+	text-align: left;
+	background-color: transparent;
+	color: #fff;
+}
+
+.ft-btn.ft-menu {
+	float: left;
+}
+
+.ft-btn.ft-layout {
+	z-index: 98;
+	float: right;
+	width: 146px;
+	height: 96px;
+	margin-right: 40px;
+	border: 2px solid #fff;
+	border-radius: 15px;
+	text-align: center;
+	font-size: 50px;
+	background-color: #000;
+	-moz-box-shadow: inset 0 0 15px #999999;
+	-webkit-box-shadow: inset 0 0 15px #999999;
+	box-shadow: inset 0px 0px 15px #999999;
+}
+
+.ft-btn.ft-cancel {
+	display: inline-block;
+	float: left;
+	width: 146px;
+	height: 96px;
+	font-size: 32px;
+	font-weight: normal;
+	line-height: 100px;
+	letter-spacing: 2px;
+	border: 2px solid #fff;
+	border-radius: 15px;
+	text-align: center;
+	background-color: #000;
+	color: #fff;
+	-moz-box-shadow: inset 0 0 15px #999999;
+	-webkit-box-shadow: inset 0 0 15px #999999;
+	box-shadow: inset 0px 0px 15px #999999;
+}
+
+.ft-btn.ft-save,
+.ft-btn.ft-next {
+	position: fixed;
+	display: inline-block;
+	right: 25px;
+	top: 25px;
+	width: 150px;
+	height: 100px;
+	font-size: 32px;
+	font-weight: normal;
+	line-height: 99px;
+	letter-spacing: 2px;
+	border: 2px solid #F00;
+	border-radius: 15px;
+	text-align: center;
+	background-color: #AE0000;
+	color: #fff;
+	-moz-box-shadow: inset 0 0 15px #999999;
+	-webkit-box-shadow: inset 0 0 15px #999999;
+	box-shadow: inset 0px 0px 15px #B10000;
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) and (orientation : landscape) {
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+	.ft-btn.ft-icon {
+		width: 42px;
+		height: 42px;
+		line-height: 42px;
+		font-size: 16px;
+	}
+	
+	.ft-btn.ft-icon:before {
+		margin: 0 0 0 3px;
+	}
+	
+	.ft-btn.ft-cancel {
+	    display: none;
+	}
+		
+	.ft-btn.ft-save,
+	.ft-btn.ft-next {
+		bottom: 10px;
+		top: initial;
+		right: 10px;
+		width: 60px;
+		height: 60px;
+		line-height: 27px;
+		border-radius: 120px;
+		font-size: 14px;
+		cursor: pointer;
+		border: none;
+		background-color: rgba(211, 0, 0, 0.51);
+		box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.16);
+	}
+	
+	.ft-btn.ft-icon.ft-main-function {
+		z-index: 98;
+		right: 10px;
+		bottom: 10px;
+		width: 60px;
+		height: 60px;
+		font-size: 44px;
+		line-height: 60px;
+	}
+	
+	.ft-btn.ft-layout {
+		width: 60px;
+		height: 60px;
+		margin: 0px;
+		line-height: 57px;
+		border-radius: 120px;
+		font-size: 32px;
+		border: none;
+		cursor: pointer;
+		background-color: rgba(211, 0, 0, 0.51);
+		box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.16);
+	}
+		
+	.ft-btn.ft-menu {
+		display: none;
+	}
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+}
+
+@media only screen and (min-width : 1325px) {
+	.ft-btn.ft-save,
+	.ft-btn.ft-next,
+	.ft-btn.ft-icon.ft-main-function	{
+		right: initial;
+		margin-left: 1205px;
+	}
+}
+/*** Body Button END ***/
+
+/*** .Content ***/
+
+.ft-content {
+	position: fixed;
+	display: block;
+	width: 100%;
+	height: 100%;
+	overflow-y: scroll;
+	background-color: #fff;
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) and (orientation : landscape) {
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+	.ft-content {
+		position: relative;
+		height: auto;
+		overflow-y: hidden;
+		max-width: 1200px;
+		margin: 100px auto 0px auto;
+	}
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+}
+/*** Content END ***/
+
+/*** Content Dangerous ***/
+
+.ft-content .ft-dangerous {
+	color: red;
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) and (orientation : landscape) {
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+}
+/*** Content Dangerous END ***/
+
+/*** .Navigation ***/
+
+.ft-navigation {
+	z-index: 98;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100px;
+	padding: 25px;
+	text-align: center;
+	background-color: #000;
+}
+
+	.ft-navigation h1 {
+		display: inline-block;
+		width: 65%;
+		float: left;
+		height: 100px;
+		margin: 0px 0px 0px 0px;
+		padding: 0px;
+		line-height: 100px;
+		font-size: 36px;
+		font-weight: normal;
+		font-family: sans-serif;
+		letter-spacing: 2px;
+		text-align: center;
+		color: #fff;
+	}
+	
+#ft-navigation-placeholder {
+	width: 100%;
+	height: 150px;
+} 
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) and (orientation : landscape) {
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+	.ft-navigation {
+		position: fixed;
+		bottom: 80px;
+		top: initial;
+		right: 10px;
+		left: initial;
+		height: auto;
+		width: 60px;
+		padding: 0px;
+		background-color: transparent;
+	}
+	
+		.ft-navigation h1 {
+			display: none;
+		}
+		
+		#ft-navigation-placeholder {
+			display: none;
+		} 
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+}
+
+@media only screen and (min-width : 1325px) {
+	.ft-navigation {
+		right: initial;
+		margin-left: 1205px;
+	}
+}
+/*** .Navigation END ***/
+
+/*** .Dashbaord ***/
+
+.ft-dashboard {
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) and (orientation : landscape) {
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+}
+/*** Body Content.Dashboard END ***/
+
+/*** Body Content.Mange.Section ***/
+
+.ft-content.ft-manage.ft-sections {
+}
+
+	.ft-content.ft-manage .ft-sections {
+		width: 100%;
+		top: 150px;
+	}
+
+			.ft-content.ft-manage .ft-sections .ft-container .ft-tools {
+				z-index: 97;
+				position: absolute;
+				right: 0px;
+				margin: 20px 35px 0px 0px;
+				list-style: none;
+				padding: 0px;
+			}
+
+				.ft-content.ft-manage .ft-sections .ft-container .ft-edit {
+					padding: 10% 35px 0px 0px;
+				}
+				
+			.ft-content.ft-manage .ft-sections .ft-container .ft-site-content {
+				position: absolute;
+			}
+
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) and (orientation : landscape) {
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+	.ft-content.manage .ft-sections {
+		position: relative;
+		top: 0px;
+	}
+	
+		.ft-content.manage .ft-sections .ft-container .ft-tools {
+			margin: 0px 35px 0px 0px;
+		}
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+}
+/*** Body Content.Manage.Section END ***/
+
+/*** Body Content.Create.Section,
+ 		 Body Content.Edit.Section	***/
+
+.ft-content.ft-create.ft-section,
+.ft-content.ft-edit.ft-section {
+}
+
+	.ft-content.ft-create.ft-section form,
+	.ft-content.ft-edit.ft-section form {
+		margin: 150px 0px 0px 0px;
+		padding: 40px 40px 40px 40px;
+	}
+
+		.ft-content.ft-create.ft-section input[type="text"].ft-name,
+		.ft-content.ft-edit.ft-section input[type="text"].ft-name,
+		.ft-content.ft-create.ft-section input[type="text"].ft-order,
+		.ft-content.ft-edit.ft-section input[type="text"].ft-order		{
+			width: 100%;
+			margin: 0px 0px 40px 0px;
+			padding: 10px;
+			font-size: 42px;
+			border: 1px solid #000;
+			border-radius: 2px;
+			border-color: #3F3F3F;
+			background-color: #FAFAFA;
+			letter-spacing: 2px;
+			
+		}
+
+		.ft-content.ft-edit.ft-section input[type="number"].ft-order {
+			width: 100%;
+			margin: 0px 0px 40px 0px;
+			font-size: 42px;
+			border: 1px solid #000;
+		}
+
+		.ft-content.ft-create.ft-section textarea.ft-html,
+		.ft-content.ft-create.ft-section textarea.ft-css,
+		.ft-content.ft-create.ft-section textarea.ft-javascript,
+		.ft-content.ft-edit.ft-section textarea.ft-html,
+		.ft-content.ft-edit.ft-section textarea.ft-css,
+		.ft-content.ft-edit.ft-section textarea.ft-javascript {
+			display: block;
+			width: 100%;
+			height: 500px;
+			margin: 0px 0px 40px 0px;
+			padding: 10px;
+			resize: vertical;
+			border-radius: 2px;
+			border-color: #3F3F3F;
+			background-color: #FAFAFA;
+			font-size: 24px;
+			letter-spacing: 2px;
+		}
+
+		.ft-content.ft-create.ft-section textarea.ft-javascript {
+			margin: 0px 0px 0px 0px;
+		}
+
+		.ft-content.ft-edit.ft-section input[type="checkbox"] {
+			float: right;
+			width: 65px;
+			height: 65px;
+			margin: 0px 0px 0px 0px;
+		}
+
+		.ft-content.ft-create.ft-section span.ft-lbl,
+		.ft-content.ft-edit.ft-section span.ft-lbl {
+			display: inline-block;
+			margin: 10px 0px 10px 0px;
+			font-size: 36px;
+			font-weight: bold;
+			letter-spacing: 2px;
+			font-family: sans-serif;
+		}
+
+		.ft-content.ft-edit.ft-section span.ft-lbl.ft-checkbox-lbl {
+			margin-bottom: 50px;
+		}
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) and (orientation : landscape) {
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+	.ft-content.ft-create.ft-section form,
+	.ft-content.ft-edit.ft-section form {
+		margin: 0px;
+		padding: 15px;
+	}
+	
+	.ft-content.ft-create.ft-section textarea.ft-html,
+	.ft-content.ft-create.ft-section textarea.ft-css,
+	.ft-content.ft-create.ft-section textarea.ft-javascript,
+	.ft-content.ft-edit.ft-section textarea.ft-html,
+	.ft-content.ft-edit.ft-section textarea.ft-css,
+	.ft-content.ft-edit.ft-section textarea.ft-javascript {
+		font-size: 18px;
+	}
+	
+		.ft-content.ft-create.ft-section input[type="text"].ft-name,
+		.ft-content.ft-edit.ft-section input[type="text"].ft-name,
+		.ft-content.ft-create.ft-section input[type="text"].ft-order,
+		.ft-content.ft-edit.ft-section input[type="text"].ft-order {
+			width: 100%;
+			font-size: 18px;
+		}
+		
+		.ft-content.ft-create.ft-section span.ft-lbl,
+		.ft-content.ft-edit.ft-section span.ft-lbl {
+			font-size: 18px;
+		}
+		
+		.ft-content.ft-edit.ft-section input[type="checkbox"] {
+			width: 40px;
+			height: 40px;
+			margin: 0px 0px 0px 0px;
+		}
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+}
+/*** Body Content.Create.Section END ***/

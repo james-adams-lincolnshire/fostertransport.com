@@ -1,0 +1,41 @@
+{{define "content"}}
+<content id="ft-manage-sections" class="ft-content ft-manage">
+	<div class="ft-navigation">
+		<a id="ft-menu-btn" class="ft-btn ft-menu fa fa-bars"></a>
+		<h1>Manage Sections</h1>
+		{{ range $key, $value := . }}
+			{{if eq $key "Head"}}
+				{{range $value}}
+					<a id="ft-layout-btn" href="/admin/manage/sections/edit?id={{.Id}}" class="ft-btn ft-layout fa fa-code"></a>
+				{{end}}
+		   {{end}}
+		{{ end }}
+	</div>
+	
+	<div id="ft-navigation-placeholder"></div>
+
+	<a href="/admin/manage/sections/create" class="ft-btn ft-icon ft-main-function ft-create-section">+</a>
+
+	<div id="body" class="ft-sections">
+		{{ range $key, $value := . }}
+			{{if eq $key "Head"}}
+				{{range $value}}
+					{{.Html}}
+				{{end}}
+			{{end}}
+			{{if eq $key "Sections"}}
+				{{range $value}}
+					<content class="ft-container">
+						<ul class="ft-tools">
+							<li class="ft-edit">
+								<a href="/admin/manage/sections/edit?id={{.Id}}" class="ft-btn ft-icon fa fa-pencil-square-o"></a>
+							</li>
+						</ul>
+					{{.Html}}
+					</content>
+				{{end}}
+			{{end}}
+		{{end}}
+	</div>
+</content>
+{{end}}

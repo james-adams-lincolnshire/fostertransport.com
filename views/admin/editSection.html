@@ -1,0 +1,21 @@
+{{define "content"}}
+<content id="ft-edit-section" class="ft-content ft-edit ft-section">
+	<div class="ft-navigation">
+		<a class="ft-btn ft-cancel" href="/admin/manage/sections">Cancel</a>
+		<h1>Edit {{.Name}} Section</h1>
+	</div>
+	<form id="ft-edit-section-form" action="/admin/manage/sections?id={{.Id}}" method="POST">
+		<input type="hidden" name="order" value="{{.Order}}" />
+
+		<span class="ft-lbl">Section Name:</span><input class="ft-name" name="sectionName" placeholder="Enter a name..." type="text" value="{{.Name}}" />
+		<span class="ft-lbl ft-checkbox-lbl">Section Hidden:</span><input class="ft-visible" name="hidden" type="checkbox" {{if .Hidden}}checked{{end}} /></br>
+		<span class="ft-lbl">Section Order:</span><input class="ft-order" name="displayOrder" placeholder="Enter a order #..." type="text" value="{{.Order}}" />
+		<span class="ft-lbl">Section HTML:</span><textarea class="ft-html" name="html" placeholder="Enter HTML here...">{{.Html}}</textarea>
+		<span class="ft-lbl">Section CSS:</span><textarea class="ft-css" name="css" placeholder="Enter CSS here...">{{.Css}}</textarea>
+		<span class="ft-lbl">Section Javascript:</span><textarea class="ft-javascript" name="javascript" placeholder="Enter Javascript here...">{{.Javascript}}</textarea>
+		<span class="ft-lbl checkbox-lbl dangerous">Delete Section:</span><input class="ft-deleted" name="deleted" type="checkbox" /></br>
+		
+		<input id="ft-save-btn" class="ft-btn ft-save" type="submit" value="Save" />
+	</form>
+</content>
+{{end}}
