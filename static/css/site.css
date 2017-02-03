@@ -356,11 +356,16 @@
 	width: 62px;
 	height: 62px;
 	line-height: 62px;
+	font-size: 24px;
 	text-align: center;
 	border-radius: 500px;
 	background-color: rgba(211, 0, 0, 0.51);
 	box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.16);
 }
+
+	.ft-btn.ft-icon:before {
+		margin: 0 0 0 3px;
+	}
 
 .ft-btn.ft-icon.ft-main-function {
 	z-index: 98;
@@ -375,7 +380,7 @@
 
 .ft-btn.ft-menu,
 .ft-btn.ft-layout {
-	display: inline-block;
+	display: inline;
 	font-size: 60px;
 	font-weight: normal;
 	line-height: 98px;
@@ -385,7 +390,7 @@
 }
 
 .ft-btn.ft-menu {
-	float: left;
+	
 }
 
 .ft-btn.ft-layout {
@@ -445,6 +450,119 @@
 	box-shadow: inset 0px 0px 15px #B10000;
 }
 
+.ft-loading-animation::before {
+  animation: loading linear 1s;
+  animation-iteration-count: infinate;
+  transform-origin: 50% 50%;
+  -webkit-animation: loading linear 1s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-transform-origin: 50% 50%;
+  -moz-animation: loading linear 1s;
+  -moz-animation-iteration-count: 1;
+  -moz-transform-origin: 50% 50%;
+  -o-animation: loading linear 1s;
+  -o-animation-iteration-count: 1;
+  -o-transform-origin: 50% 50%;
+  -ms-animation: loading linear 1s;
+  -ms-animation-iteration-count: 1;
+  -ms-transform-origin: 50% 50%;
+}
+
+@keyframes ft-loading {
+  0% {
+    opacity:1;
+    transform:  scaleX(1.00) scaleY(1.00) ;
+  }
+  25% {
+    opacity:1;
+    transform:  scaleX(0.95) scaleY(0.95) ;
+  }
+  50% {
+    opacity:1;
+    transform:  scaleX(1.10) scaleY(1.10) ;
+  }
+  100% {
+    opacity:0;
+    transform:  scaleX(0.30) scaleY(0.30) ;
+  }
+}
+
+@-moz-keyframes ft-loading {
+  0% {
+    opacity:1;
+    -moz-transform:  scaleX(1.00) scaleY(1.00) ;
+  }
+  25% {
+    opacity:1;
+    -moz-transform:  scaleX(0.95) scaleY(0.95) ;
+  }
+  50% {
+    opacity:1;
+    -moz-transform:  scaleX(1.10) scaleY(1.10) ;
+  }
+  100% {
+    opacity:0;
+    -moz-transform:  scaleX(0.30) scaleY(0.30) ;
+  }
+}
+
+@-webkit-keyframes ft-loading {
+  0% {
+    opacity:1;
+    -webkit-transform:  scaleX(1.00) scaleY(1.00) ;
+  }
+  25% {
+    opacity:1;
+    -webkit-transform:  scaleX(0.95) scaleY(0.95) ;
+  }
+  50% {
+    opacity:1;
+    -webkit-transform:  scaleX(1.10) scaleY(1.10) ;
+  }
+  100% {
+    opacity:0;
+    -webkit-transform:  scaleX(0.30) scaleY(0.30) ;
+  }
+}
+
+@-o-keyframes ft-loading {
+  0% {
+    opacity:1;
+    -o-transform:  scaleX(1.00) scaleY(1.00) ;
+  }
+  25% {
+    opacity:1;
+    -o-transform:  scaleX(0.95) scaleY(0.95) ;
+  }
+  50% {
+    opacity:1;
+    -o-transform:  scaleX(1.10) scaleY(1.10) ;
+  }
+  100% {
+    opacity:0;
+    -o-transform:  scaleX(0.30) scaleY(0.30) ;
+  }
+}
+
+@-ms-keyframes ft-loading {
+  0% {
+    opacity:1;
+    -ms-transform:  scaleX(1.00) scaleY(1.00) ;
+  }
+  25% {
+    opacity:1;
+    -ms-transform:  scaleX(0.95) scaleY(0.95) ;
+  }
+  50% {
+    opacity:1;
+    -ms-transform:  scaleX(1.10) scaleY(1.10) ;
+  }
+  100% {
+    opacity:0;
+    -ms-transform:  scaleX(0.30) scaleY(0.30) ;
+  }
+}
+
 /* Custom, iPhone Retina */
 @media only screen and (min-width : 320px) and (orientation : landscape) {
 }
@@ -464,10 +582,7 @@
 		height: 42px;
 		line-height: 42px;
 		font-size: 16px;
-	}
-	
-	.ft-btn.ft-icon:before {
-		margin: 0 0 0 3px;
+		box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.16);
 	}
 	
 	.ft-btn.ft-cancel {
@@ -498,6 +613,7 @@
 		height: 60px;
 		font-size: 44px;
 		line-height: 60px;
+		box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.16);
 	}
 	
 	.ft-btn.ft-layout {
@@ -510,7 +626,7 @@
 		border: none;
 		cursor: pointer;
 		background-color: rgba(211, 0, 0, 0.51);
-		box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.16);
+		box-shadow: 2px 2px 0px 0px rgba(0, 0, 0, 0.16);
 	}
 		
 	.ft-btn.ft-menu {
@@ -715,18 +831,25 @@
 		width: 100%;
 		top: 150px;
 	}
+	
+			.ft-content.ft-manage .ft-sections .ft-container .ft-save-form  {
+				margin: 0;
+				padding: 0 ;
+			}
 
 			.ft-content.ft-manage .ft-sections .ft-container .ft-tools {
 				z-index: 97;
 				position: absolute;
-				right: 0px;
-				margin: 20px 35px 0px 0px;
+				right: 0;
+				margin: 20px 35px 0 ;
 				list-style: none;
-				padding: 0px;
+				padding: 0;
 			}
 
-				.ft-content.ft-manage .ft-sections .ft-container .ft-edit {
-					padding: 10% 35px 0px 0px;
+				.ft-content.ft-manage .ft-sections .ft-container .ft-tools .ft-edit,
+				.ft-content.ft-manage .ft-sections .ft-container .ft-tools .ft-save  {
+					display: inline;
+					padding: 0 10px 0 0;
 				}
 				
 			.ft-content.ft-manage .ft-sections .ft-container .ft-site-content {
@@ -750,11 +873,11 @@
 @media only screen and (min-width : 992px) {
 	.ft-content.manage .ft-sections {
 		position: relative;
-		top: 0px;
+		top: 0;
 	}
 	
 		.ft-content.manage .ft-sections .ft-container .ft-tools {
-			margin: 0px 35px 0px 0px;
+			margin: 0px 35px 0 0;
 		}
 }
 
@@ -772,7 +895,7 @@
 
 	.ft-content.ft-create.ft-section form,
 	.ft-content.ft-edit.ft-section form {
-		margin: 150px 0px 0px 0px;
+		margin: 150px 0 0 0;
 		padding: 40px 40px 40px 40px;
 	}
 
@@ -781,7 +904,7 @@
 		.ft-content.ft-create.ft-section input[type="text"].ft-order,
 		.ft-content.ft-edit.ft-section input[type="text"].ft-order		{
 			width: 100%;
-			margin: 0px 0px 40px 0px;
+			margin: 0 0 40px 0;
 			padding: 10px;
 			font-size: 42px;
 			border: 1px solid #000;
@@ -794,7 +917,7 @@
 
 		.ft-content.ft-edit.ft-section input[type="number"].ft-order {
 			width: 100%;
-			margin: 0px 0px 40px 0px;
+			margin: 0 0 40px 0;
 			font-size: 42px;
 			border: 1px solid #000;
 		}
@@ -808,7 +931,7 @@
 			display: block;
 			width: 100%;
 			height: 500px;
-			margin: 0px 0px 40px 0px;
+			margin: 0 0 40px 0;
 			padding: 10px;
 			resize: vertical;
 			border-radius: 2px;
@@ -819,20 +942,20 @@
 		}
 
 		.ft-content.ft-create.ft-section textarea.ft-javascript {
-			margin: 0px 0px 0px 0px;
+			margin: 0 0 0 0;
 		}
 
 		.ft-content.ft-edit.ft-section input[type="checkbox"] {
 			float: right;
 			width: 65px;
 			height: 65px;
-			margin: 0px 0px 0px 0px;
+			margin: 0 0 0 0;
 		}
 
 		.ft-content.ft-create.ft-section span.ft-lbl,
 		.ft-content.ft-edit.ft-section span.ft-lbl {
 			display: inline-block;
-			margin: 10px 0px 10px 0px;
+			margin: 10px 0 10px 0;
 			font-size: 36px;
 			font-weight: bold;
 			letter-spacing: 2px;
@@ -859,7 +982,7 @@
 @media only screen and (min-width : 992px) {
 	.ft-content.ft-create.ft-section form,
 	.ft-content.ft-edit.ft-section form {
-		margin: 0px;
+		margin: 0;
 		padding: 15px;
 	}
 	
@@ -888,7 +1011,7 @@
 		.ft-content.ft-edit.ft-section input[type="checkbox"] {
 			width: 40px;
 			height: 40px;
-			margin: 0px 0px 0px 0px;
+			margin: 0 0 0 0;
 		}
 }
 

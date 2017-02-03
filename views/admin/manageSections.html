@@ -1,7 +1,7 @@
 {{define "content"}}
 <content id="ft-manage-sections" class="ft-content ft-manage">
 	<div class="ft-navigation">
-		<a id="ft-menu-btn" class="ft-btn ft-menu fa fa-bars"></a>
+		<a id="ft-menu-btn" class="ft-btn ft-menu ft-no-loading fa fa-bars"></a>
 		<h1>Manage Sections</h1>
 		{{ range $key, $value := . }}
 			{{if eq $key "Head"}}
@@ -30,8 +30,17 @@
 							<li class="ft-edit">
 								<a href="/admin/manage/sections/edit?id={{.Id}}" class="ft-btn ft-icon fa fa-pencil-square-o"></a>
 							</li>
+							<li class="ft-save">
+								<a data-form-id="{{.Id}}" href="/admin/manage/sections/edit?id={{.Id}}" class="ft-save-btn ft-btn ft-icon ft-no-loading fa fa-floppy-o"></a>
+							</li>
 						</ul>
-					{{.Html}}
+						<form id="ft-save-form-{{.Id}}" class="ft-save-form"  action="/admin/manage/sections?id={{.Id}}" method="POST" contenteditable="true">
+							<input type="hidden" name="id" value="{{.Id}}" />
+							<input id="ft-save-html-{{.Id}}" type="hidden" name="html" />
+							<div id="ft-html-container-{{.Id}}">
+								{{.Html}}
+							</div>
+						</form>
 					</content>
 				{{end}}
 			{{end}}

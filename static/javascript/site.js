@@ -8,12 +8,15 @@ var app = {
 	init: function(debugging) {
 		app.debug = debugging;
 
+		tool.init(); // Must be first
 		menu.events();
 		loading.events();
 	}
 }
 
 var tool = {
+	init: function () {
+	},
 	ajaxPost: function (form, callback) {
 		var url = form.action,
 			xhr = new XMLHttpRequest();
@@ -37,6 +40,13 @@ var tool = {
 
 		//All preperations are clear, send the request!
 		xhr.send(params);
+	},
+	animateLoop: function () {
+		function animate() {
+		  // Do whatever
+		  requestAnimationFrame(animate);
+		}
+		animate();
 	}
 }
 
@@ -63,24 +73,62 @@ var menu = {
 	},
 	events: function () {
 		var saveBtn = document.getElementById('ft-save-btn');
-		if (saveBtn) saveBtn.addEventListener('click', menu.editSection);
+		if (saveBtn) saveBtn.addEventListener('click', function(e) {
+			saveBtn.disabled = true;
+			saveBtn.value = '...';
+			
+			var callback = function(e) {
+				e.value = 'Save';
+				e.disabled = false;
+			};
+			
+			menu.editSection.submit('ft-edit-section-form', e, callback, saveBtn);
+		});
+		
+		var quickSaveBtns = document.getElementsByClassName('ft-save-btn');
+		if (quickSaveBtns) {
+			for (var i = 0; i < quickSaveBtns.length; i++) {
+				var quickSaveBtn = quickSaveBtns[i];
+				
+				quickSaveBtn.addEventListener('click', function(e) {
+					this.disabled = true;
+					this.classList.add('ft-loading-animation');
+					
+					var formId = this.getAttribute("data-form-id");
+					
+					var callback = function(clickedBtn) {
+						console.log('clicked!!');
+						//clickedBtn.classList.remove('ft-loading-animation');
+						clickedBtn.disabled = false;
+					};
+					
+					menu.editSection.quickSave.captureHtml(formId);
+					menu.editSection.submit('ft-save-form-' + formId, e, callback, this);
+				});
+			}
+		}
 		
 		menu.mobile.events();
 	},
-	editSection: function (e) {
-		e.preventDefault();
-		
-		var editSectionForm = document.getElementById('ft-edit-section-form');
-		
-		var btn = document.getElementById('ft-save-btn');
-		
-		btn.disabled = true;
-		btn.value = '....';
-		
-		tool.ajaxPost(editSectionForm, function () {
-			btn.disabled = false;
-			btn.value = 'Save';
-		});
+	editSection: {
+		quickSave: {
+			captureHtml: function (formId) {
+				var formInputElement = document.getElementById('ft-save-html-' + formId);
+				var htmlContainer = document.getElementById('ft-html-container-' + formId);
+				
+				formInputElement.value = htmlContainer.innerHTML;
+			}
+		},
+		submit: function (formId, e, callback, clickedBtn) {
+			// loadingValuePre, loadingValuePost: OPTIONAL
+			e.preventDefault();
+			
+			var editSectionForm = document.getElementById(formId);
+			
+			tool.ajaxPost(editSectionForm, function () {
+				if (callback) callback(clickedBtn);
+			});
+		}
 	}
 };
 
@@ -97,8 +145,7 @@ var loading = {
 		var links = document.getElementsByTagName('a');
 
 		for (var i = 0; i < links.length; i++)
-			if (!links[i].classList.contains('ft-menu') &&
-					!links[i].hasAttribute('target'))
+			if (!links[i].classList.contains('ft-no-loading') && !links[i].hasAttribute('target') && /(?:^|\s)ft-\S*(?:$|\s)/.test(links[i].className))
 				links[i].addEventListener('click', loading.toggle);
 	}
 }

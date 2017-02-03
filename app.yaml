@@ -9,8 +9,8 @@ handlers:
 - url: /admin.*
   script: _go_app
   login: admin
-  secure: always
+  secure: optional
 
 - url: .*
   script: _go_app
-  secure: always
+  secure: optional
