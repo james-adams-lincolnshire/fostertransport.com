@@ -4,9 +4,17 @@
 		<a id="ft-menu-btn" class="ft-btn ft-menu ft-no-loading fa fa-bars"></a>
 		<h1>Manage Sections</h1>
 		{{ range $key, $value := . }}
-			{{if eq $key "Head"}}
+		   {{if eq $key "Head"}}
 				{{range $value}}
-					<a id="ft-layout-btn" href="/admin/manage/sections/edit?id={{.Id}}" class="ft-btn ft-layout fa fa-code"></a>
+					<a id="ft-head-btn" href="/admin/manage/sections/edit?id={{.Id}}" class="ft-btn ft-layout fa fa-code"></a>
+				{{end}}
+			{{end}}
+		{{ end }}
+		
+		{{ range $key, $value := . }}
+			{{if eq $key "DeferredContent"}}
+				{{range $value}}
+					<a id="ft-deferred-content-btn" href="/admin/manage/sections/edit?id={{.Id}}" class="ft-btn ft-layout">js</a>
 				{{end}}
 		   {{end}}
 		{{ end }}
@@ -42,6 +50,11 @@
 							</div>
 						</form>
 					</content>
+				{{end}}
+			{{end}}
+			{{if eq $key "DeferredContent"}}
+				{{range $value}}
+					{{.Html}}
 				{{end}}
 			{{end}}
 		{{end}}
