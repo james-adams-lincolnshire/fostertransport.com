@@ -6,6 +6,11 @@
 		{{end}}
 	{{end}}
 	<body id="body">
+		<style>
+			{{range .}}
+				{{.Css}}
+			{{end}}
+		</style>
 		{{range .}}
 			{{if ne .Name "Head"}}
 				{{.Html}}

@@ -25,6 +25,13 @@
 	<a href="/admin/manage/sections/create" class="ft-btn ft-icon ft-main-function ft-create-section">+</a>
 
 	<div id="body" class="ft-sections">
+		<style>
+			{{ range $key, $value := . }}
+				{{range $value}}
+					{{.Css}}
+				{{end}}
+			{{end}}
+		</style>
 		{{ range $key, $value := . }}
 			{{if eq $key "Head"}}
 				{{range $value}}
