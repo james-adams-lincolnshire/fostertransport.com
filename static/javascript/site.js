@@ -16,6 +16,7 @@ var app = {
 
 var tool = {
 	init: function () {
+		tool.setupEditors();
 	},
 	ajaxPost: function (form, callback) {
 		var url = form.action,
@@ -47,6 +48,42 @@ var tool = {
 		  requestAnimationFrame(animate);
 		}
 		animate();
+	},
+	htmlEditor: {},
+	cssEditor: {},
+	jsEditor: {},
+	setupEditors: function () {
+		if (!document.getElementById("htmlEditor"))
+			return false;
+		
+		tool.htmlEditor = ace.edit("htmlEditor");
+		tool.cssEditor = ace.edit("cssEditor");
+		tool.jsEditor =  ace.edit("jsEditor");
+		
+		tool.htmlEditor.setOptions({
+			maxLines: 1000,
+			autoScrollEditorIntoView: true,
+			wrap: true,
+			theme: "ace/theme/monokai",
+			showPrintMargin: true,
+			mode: "ace/mode/html"
+		});
+
+		tool.cssEditor.setOptions({
+			maxLines: 1000,
+			autoScrollEditorIntoView: true,
+			theme: "ace/theme/monokai",
+			showPrintMargin: true,
+			mode: "ace/mode/css"
+		});
+
+		tool.jsEditor.setOptions({
+			maxLines: 1000,
+			autoScrollEditorIntoView: true,
+			theme: "ace/theme/monokai",
+			showPrintMargin: true,
+			mode: "ace/mode/javascript"
+		});
 	}
 }
 
@@ -81,6 +118,10 @@ var menu = {
 				e.value = 'Save';
 				e.disabled = false;
 			};
+			
+			document.getElementById('html').value = tool.htmlEditor.getValue();
+			document.getElementById('css').value = tool.cssEditor.getValue();
+			document.getElementById('javascript').value = tool.jsEditor.getValue();
 			
 			menu.editSection.submit('ft-edit-section-form', e, callback, saveBtn);
 		});
@@ -120,7 +161,6 @@ var menu = {
 			}
 		},
 		submit: function (formId, e, callback, clickedBtn) {
-			// loadingValuePre, loadingValuePost: OPTIONAL
 			e.preventDefault();
 			
 			var editSectionForm = document.getElementById(formId);

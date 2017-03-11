@@ -9,13 +9,25 @@
 		<span class="ft-lbl ft-checkbox-lbl">Hidden?:</span><input class="ft-visible" name="hidden" type="checkbox" {{if .Hidden}}checked="checked"{{end}} /></br>
 		<span class="ft-lbl ft-checkbox-lbl">Above The Fold?:</span><input class="ft-visible" name="aboveTheFold" type="checkbox" {{if .AboveTheFold}}checked="checked"{{end}} /></br>
 		<span class="ft-lbl">Order:</span><input class="ft-order" name="displayOrder" placeholder="Enter a order #..." type="text" value="{{.Order}}" />
-		<span class="ft-lbl">HTML:</span><textarea class="ft-html" name="html" placeholder="Enter HTML here...">{{.Html}}</textarea>
 		
-		<span class="ft-lbl">CSS:</span><textarea class="ft-css" name="css" placeholder="Enter CSS here...">{{.Css}}</textarea>
-		<span class="ft-lbl">Javascript:</span><textarea class="ft-javascript" name="javascript" placeholder="Enter Javascript here...">{{.Javascript}}</textarea>
+		<input id="html" name="html" type="hidden" />
+		<input id="css" name="css" type="hidden" />
+		<input id="javascript" name="javascript" type="hidden" />
+		
+		<span class="ft-lbl">HTML:</span>
+		<div id="htmlEditor">{{.Html}}</div>
+		
+		<span class="ft-lbl">CSS:</span>
+		<div id="cssEditor">{{.Css}}</div>
+		
+		<span class="ft-lbl">Javascript:</span>
+		<div id="jsEditor">{{.Javascript}}</div>
+		
 		<span class="ft-lbl checkbox-lbl dangerous">Delete Section:</span><input class="ft-deleted" name="deleted" type="checkbox" /></br>
 		
 		<input id="ft-save-btn" class="ft-btn ft-save" type="submit" value="Save" />
 	</form>
 </content>
+
+<script src="/static/javascript/ace/noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
 {{end}}
