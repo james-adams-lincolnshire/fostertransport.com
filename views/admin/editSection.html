@@ -1,31 +1,42 @@
-{{define "content"}}
+{{ define "content" }}
 <content id="ft-edit-section" class="ft-content ft-edit ft-section">
 	<div class="ft-navigation">
-		<a class="ft-btn ft-cancel" href="/admin/manage/sections">Cancel</a>
-		<h1>Edit {{.Name}} Section</h1>
-	</div>
-	<form id="ft-edit-section-form" action="/admin/manage/sections?id={{.Id}}" method="POST">
-		<span class="ft-lbl">Name:</span><input class="ft-name" name="sectionName" placeholder="Enter a name..." type="text" value="{{.Name}}" />
-		<span class="ft-lbl ft-checkbox-lbl">Hidden?:</span><input class="ft-visible" name="hidden" type="checkbox" {{if .Hidden}}checked="checked"{{end}} /></br>
-		<span class="ft-lbl ft-checkbox-lbl">Above The Fold?:</span><input class="ft-visible" name="aboveTheFold" type="checkbox" {{if .AboveTheFold}}checked="checked"{{end}} /></br>
-		<span class="ft-lbl">Order:</span><input class="ft-order" name="displayOrder" placeholder="Enter a order #..." type="text" value="{{.Order}}" />
+		<a id="ft-menu-btn" class="ft-btn ft-menu ft-no-loading material-icons">&#xE5D2;</a>
+		<h1>{{ .Model.Name }}</h1>
+		<a id="ft-sub-menu-btn" class="ft-btn ft-menu ft-sub-menu-btn ft-no-loading ft-hidden material-icons">&#xE5D4;</a>
+		<a id="ft-done-btn" class="ft-done ft-no-loading material-icons" href="/admin/sections">&#xE877;</a>
 		
+		<ul id="ft-sub-menu" class="ft-sub-menu ft-hidden">
+			<li>
+				<input id="ft-save-btn" class="ft-save" type="submit" form="ft-edit-section-form" value="Save" />
+			</li>
+		</ul>
+	</div>
+	<form id="ft-edit-section-form" action="/admin/sections?id={{ .Model.Id }}" method="POST">
 		<input id="html" name="html" type="hidden" />
 		<input id="css" name="css" type="hidden" />
 		<input id="javascript" name="javascript" type="hidden" />
+	
+		<span class="ft-lbl">Name:</span><input class="ft-name" name="sectionName" placeholder="Enter a name..." type="text" value="{{ .Model.Name }}" />
+		
+		<span class="ft-lbl">Order:</span><input class="ft-order" name="displayOrder" placeholder="Enter a order #..." type="text" value="{{ .Model.Order }}" />
 		
 		<span class="ft-lbl">HTML:</span>
-		<div id="htmlEditor">{{.Html}}</div>
+		<div id="htmlEditor" class="ft-script-editor">{{ .Model.Html }}</div>
 		
 		<span class="ft-lbl">CSS:</span>
-		<div id="cssEditor">{{.Css}}</div>
+		<div id="cssEditor" class="ft-script-editor">{{ .Model.Css }}</div>
 		
 		<span class="ft-lbl">Javascript:</span>
-		<div id="jsEditor">{{.Javascript}}</div>
+		<div id="jsEditor" class="ft-script-editor">{{ .Model.Javascript }}</div>
 		
-		<span class="ft-lbl checkbox-lbl dangerous">Delete Section:</span><input class="ft-deleted" name="deleted" type="checkbox" /></br>
+		<span class="ft-lbl ft-checkbox-lbl">Hidden:</span><input class="ft-visible" name="hidden" type="checkbox" {{ if .Model.Hidden }}checked="checked"{{ end }} /></br>
 		
-		<input id="ft-save-btn" class="ft-btn ft-save" type="submit" value="Save" />
+		<span class="ft-lbl ft-checkbox-lbl">Above The Fold:</span><input class="ft-visible" name="aboveTheFold" type="checkbox" {{ if .Model.AboveTheFold }}checked="checked"{{ end }} /></br>
+		
+		<span class="ft-lbl ft-checkbox-lbl ft-dangerous">Delete:</span><input class="ft-deleted" name="deleted" type="checkbox" /></br>
+		
+		
 	</form>
 </content>
 

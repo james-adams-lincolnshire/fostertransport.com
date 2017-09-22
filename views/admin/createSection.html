@@ -1,19 +1,40 @@
-{{define "content"}}
+{{ define "content" }}
 <content id="ft-create-section" class="ft-content ft-create ft-section">
 	<div class="ft-navigation">
-		<a class="ft-btn cancel" href="/admin/manage/sections">Cancel</a>
+		<a id="ft-menu-btn" class="ft-btn ft-menu ft-no-loading material-icons">&#xE5D2;</a>
 		<h1>Create Section</h1>
+		<a id="ft-sub-menu-btn" class="ft-btn ft-menu ft-sub-menu-btn ft-no-loading ft-hidden material-icons">&#xE5D4;</a>
+		<input id="ft-create-btn" class="ft-done ft-no-loading material-icons" type="submit" form="ft-create-section-form" data-complete-url="/admin/sections" value="&#xE877;" />
+		
+		<ul id="ft-sub-menu" class="ft-sub-menu ft-hidden">
+			<li>
+				<input id="ft-create-sub-menu-btn" class="ft-create-btn" type="submit" form="ft-create-section-form" data-complete-url="/admin/sections" value="Create" />
+			</li>
+		</ul>
 	</div>
-	<form action="/admin/manage/sections" method="POST">
+	<form id="ft-create-section-form" action="/admin/sections" method="POST">
 		<input type="hidden" name="hidden" value="on" />
+		<input id="html" name="html" type="hidden" />
+		<input id="css" name="css" type="hidden" />
+		<input id="javascript" name="javascript" type="hidden" />
 	
-		<span class="ft-lbl">Section Name:</span><input class="ft-name" name="sectionName" placeholder="Enter a name..." type="text" />
-		<span class="ft-lbl">Section HTML:</span><textarea class="ft-html" name="html" placeholder="Enter HTML here..."></textarea>
-		<span class="ft-lbl ft-checkbox-lbl">Above The Fold?:</span><input class="ft-visible" name="aboveTheFold" type="checkbox" /></br>
-		<span class="ft-lbl">Section CSS:</span><textarea class="ft-css" name="css" placeholder="Enter CSS here..." /></textarea>
-		<span class="ft-lbl">Section Javascript:</span><textarea class="ft-javascript" name="javascript" placeholder="Enter Javascript here..." /></textarea>
-
-		<input class="ft-btn ft-next" type="submit" value="Next" />
+		<span class="ft-lbl">Name:</span>
+		<input class="ft-name" name="sectionName" placeholder="Enter a name..." type="text" />
+		
+		<span class="ft-lbl">Order:</span><input class="ft-order" name="displayOrder" placeholder="Enter an order #..." type="text" value="1" />
+		
+		<span class="ft-lbl">HTML:</span>
+		<div id="htmlEditor" class="ft-script-editor"></div>
+		
+		<span class="ft-lbl">CSS:</span>
+		<div id="cssEditor" class="ft-script-editor"></div>
+		
+		<span class="ft-lbl">Javascript:</span>
+		<div id="jsEditor" class="ft-script-editor"></div>
+		
+		<span class="ft-lbl ft-checkbox-lbl">Above The Fold:</span><input class="ft-visible" name="aboveTheFold" type="checkbox" /></br>
 	</form>
 </content>
-{{end}}
+
+<script src="/static/javascript/ace/noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+{{ end }}

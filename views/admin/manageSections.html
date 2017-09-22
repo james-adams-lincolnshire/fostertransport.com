@@ -1,70 +1,57 @@
-{{define "content"}}
+{{ define "content" }}
 <content id="ft-manage-sections" class="ft-content ft-manage">
 	<div class="ft-navigation">
-		<a id="ft-menu-btn" class="ft-btn ft-menu ft-no-loading fa fa-bars"></a>
+		<a id="ft-menu-btn" class="ft-btn ft-menu ft-no-loading material-icons">&#xE5D2;</a>
 		<h1>Manage Sections</h1>
-		{{ range $key, $value := . }}
-		   {{if eq $key "Head"}}
-				{{range $value}}
-					<a id="ft-head-btn" href="/admin/manage/sections/edit?id={{.Id}}" class="ft-btn ft-layout fa fa-code"></a>
-				{{end}}
-			{{end}}
-		{{ end }}
+		<a id="ft-sub-menu-btn" class="ft-btn ft-menu ft-sub-menu-btn ft-no-loading ft-hidden material-icons">&#xE5D4;</a>
 		
-		{{ range $key, $value := . }}
-			{{if eq $key "DeferredContent"}}
-				{{range $value}}
-					<a id="ft-deferred-content-btn" href="/admin/manage/sections/edit?id={{.Id}}" class="ft-btn ft-layout">js</a>
-				{{end}}
-		   {{end}}
-		{{ end }}
+		<ul id="ft-sub-menu" class="ft-sub-menu ft-hidden">
+			<li>
+				<a href="/admin/sections/create" class="ft-create-section">New Section</a>
+			</li>
+		</ul>
 	</div>
 	
 	<div id="ft-navigation-placeholder"></div>
 
-	<a href="/admin/manage/sections/create" class="ft-btn ft-icon ft-main-function ft-create-section">+</a>
-
 	<div id="body" class="ft-sections">
 		<style>
-			{{ range $key, $value := . }}
-				{{range $value}}
-					{{.Css}}
-				{{end}}
-			{{end}}
+			{{ range $key, $value := .Model }}
+				{{ range $value }}
+					{{ .Css }}
+				{{ end }}
+			{{ end }}
 		</style>
-		{{ range $key, $value := . }}
-			{{if eq $key "Head"}}
-				{{range $value}}
-					{{.Html}}
-				{{end}}
-			{{end}}
-			{{if eq $key "Sections"}}
-				{{range $value}}
+		{{ range $key, $value := .Model }}
+			{{ if eq $key "Head" }}
+				{{ range $value }}
+					{{ .Html }}
+				{{ end }}
+			{{ end }}
+			{{ if eq $key "Sections" }}
+				{{ range $value }}
 					<content class="ft-container">
 						<ul class="ft-tools">
-							<li class="ft-edit">
-								<a href="/admin/manage/sections/edit?id={{.Id}}" class="ft-btn ft-icon fa fa-pencil-square-o"></a>
-							</li>
 							<li class="ft-save">
-								<a data-form-id="{{.Id}}" href="/admin/manage/sections/edit?id={{.Id}}" class="ft-save-btn ft-btn ft-icon ft-no-loading fa fa-floppy-o"></a>
+								<a data-form-id="{{.Id}}" href="/admin/sections/edit?id={{.Id}}" class="ft-save-btn ft-btn ft-icon ft-no-loading fa fa-floppy-o"></a>
 							</li>
 						</ul>
-						<form id="ft-save-form-{{.Id}}" class="ft-save-form"  action="/admin/manage/sections?id={{.Id}}" method="POST" contenteditable="true">
+						<form id="ft-save-form-{{.Id}}" class="ft-save-form"  action="/admin/sections?id={{.Id}}" method="POST" contenteditable="true">
 							<input type="hidden" name="id" value="{{.Id}}" />
 							<input id="ft-save-html-{{.Id}}" type="hidden" name="html" />
 							<div id="ft-html-container-{{.Id}}">
-								{{.Html}}
+								{{ .Html }}
 							</div>
 						</form>
 					</content>
-				{{end}}
-			{{end}}
-			{{if eq $key "DeferredContent"}}
-				{{range $value}}
-					{{.Html}}
-				{{end}}
-			{{end}}
-		{{end}}
+				{{ end }}
+			{{ end }}
+			{{ if eq $key "DeferredContent" }}
+				{{ range $value }}
+					{{ .Html }}
+				{{ end }}
+			{{ end }}
+		{{ end }}
 	</div>
 </content>
-{{end}}
+{{ end }}

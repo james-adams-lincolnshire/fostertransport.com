@@ -1,15 +1,16 @@
-{{define "layout"}}
+{{ define "layout" }}
 <html>
-	{{template "head"}}
+	{{ template "head" }}
 	<body class="ft-body">
-		{{template "header"}}
-		{{template "content" . }}
+		{{ template "header" . }}
+		{{ template "content" . }}
 
 		<div id="ft-loading" class="ft-container">
-			<div class="ft-msg">Loading...</div>
+			<div class="ft-msg material-icons">&#xE5D5;</div>
 		</div>
 
 		<script type="text/javascript" src="/static/javascript/site.js"></script>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	</body>
 </html>
-{{end}}
+{{ end }}

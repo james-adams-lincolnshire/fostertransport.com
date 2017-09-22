@@ -1,26 +1,56 @@
-{{define "header"}}
+{{ define "header" }}
 <header id="ft-header" class="ft-box-shadow">
-	<img src="/static/images/foster-transport_logo_198-198.png" alt="Foster Transport logo" class="ft-logo" />
-	<span class="ft-firstname ft-label">Andrew </span>
-	<span class="ft-lastname ft-label">Foster</span>
 	<nav>
 		<ul>
 			<li>
-				<a href="/admin/dashboard"><span>Dashboard</span></a>
+				<a href="/admin/dashboard">
+					<span>Dashboard</span>
+					{{ if eq .Menu.CurrentLocation "dashboard" }}
+						<div class="ft-active"></div>
+					{{ end }}
+				</a>
 			</li>
 			<li>
-				<a href="/admin/quote/chats"><span>Live Chats</span>
-				<span class="ft-notification-number ft-live-chats">2</span></a>
+				<a href="/admin/chats">
+					<span>Live Chats</span>
+					<span class="ft-notification-number ft-live-chats">2</span>
+					{{ if eq .Menu.CurrentLocation "live-chats" }}
+						<div class="ft-active"></div>
+					{{ end }}
+				</a>
 			</li>
 			<li>
-				<a href="/admin/quote/requests"><span>Quotes</span>
-				<span class="ft-notification-number ft-quotes">13</span></a>
+				<a href="/admin/quotes">
+					<span>Quotes</span>
+					<span class="ft-notification-number ft-quotes">13</span>
+					{{ if eq .Menu.CurrentLocation "quote-requests" }}
+						<div class="ft-active"></div>
+					{{ end }}
+				</a>
 			</li>
 			<li>
-				<a href="/admin/manage/sections"><span>Sections</span></a>
+				<a href="/admin/sections">
+					<span>Sections</span>
+					{{ if or (eq .Menu.CurrentLocation "manage-sections")  (eq .Menu.CurrentLocation "edit-section") (eq .Menu.CurrentLocation "create-section") }}
+						<span class="ft-sub-menu-btn material-icons">&#xE5CF;</span>
+						<div class="ft-active"></div>
+					{{ end }}
+				</a>
+				{{ if or (eq .Menu.CurrentLocation "manage-sections")  (eq .Menu.CurrentLocation "edit-section") (eq .Menu.CurrentLocation "create-section") }}
+					<ul class="ft-sub-menu">
+						{{ range .Menu.Sections }}
+							<li><a id="ft-head-btn" href="/admin/sections/edit?id={{ .Id }}" class="ft-sub-menu-btn">{{ .Name }}</a></li>
+						{{ end }}
+					</ul>
+				{{ end }}
 			</li>
 			<li>
-				<a href="/admin/manage/blog"><span>Blog</span></a>
+				<a href="/admin/blog">
+					<span>Blog</span>
+					{{ if eq .Menu.CurrentLocation "manage-blog" }}
+						<div class="ft-active"></div>
+					{{ end }}
+				</a>
 			</li>
 		</ul>
 	</nav>
@@ -30,4 +60,4 @@
 </header>
 
 <div id="ft-header-background" class="ft-container"></div>
-{{end}}
+{{ end }}
